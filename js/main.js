@@ -13,6 +13,7 @@ function draw(AST){
 }
 
 var ast = {
+  title: 'Test SVG',
   actors: [{name:'lb', label:'LB'},{name:'proxy', label:'Proxy'},{name:'test', label:'Test'}],
   lb: {},
   proxy: {},
@@ -20,3 +21,12 @@ var ast = {
 }
 
 draw( ast );
+
+function download(){
+  var svgData = diagram.svg();
+  var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
+  var svgUrl = URL.createObjectURL(svgBlob);
+  var downloadLink = document.getElementById("download");
+  downloadLink.href = svgUrl;
+  downloadLink.download = ast.title+".svg";
+}

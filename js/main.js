@@ -1,6 +1,7 @@
+var diagram = SVG('drawing').viewbox(0, 0, 100, 100);
+
 function draw(AST){
   // initialize SVG.js
-  var diagram = SVG('drawing').viewbox(0, 0, 100, 100);
   var columns = AST.actors.length;
   var column_margin_width = (100/columns)*0.1;
   var column_width = (100-((columns-1)*column_margin_width))/columns;
